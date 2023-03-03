@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0;
+            }
+            .container {
+                width: 100vw;
+                height: auto;
+                margin: 0;
+                opacity: 0;
+            }
+            .inner {
+                width: 100vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="inner">
+                <img src="img/1.jpg" alt="" id="imgsrc">
+            </div>
+        </div>
+        <audio autoplay="autoplay">
+            <source src="1.mp3" type="audio/mp3">
+        </audio>
+        <script>
+            var opacity = 0;
+            var imge = 1;
+            var intervalID = 0;
+            setInterval(function(){
+                if(opacity < 1){
+                    intervalID = setInterval(show,10)
+                    document.getElementById('imgsrc').src = "img/" + imge + ".png";
+                } else if(opacity >= 1) {
+                    intervalID = setInterval(hide,10)
+                    imge = imge + 1;
+                }
+            }, 3000)
+            
+            function show(){
+                if(opacity < 1){
+                    opacity = opacity + 0.01
+                    document.querySelector('.container').style.opacity = opacity;
+                } else {
+                    clearInterval(intervalID)
+                }
+            }
+            function hide(){
+                if(opacity > 0){
+                    opacity = opacity - 0.01
+                    document.querySelector('.container').style.opacity = opacity;
+                } else {
+                    clearInterval(intervalID)
+                }
+            }
+        </script>
+    </body>
+</html>
