@@ -30,8 +30,8 @@
             var intervalID = 0;
             setInterval(function(){
                 if(opacity < 1){
-                    intervalID = setInterval(show,10)
                     document.getElementById('imgsrc').src = "img/" + imge + ".png";
+                    intervalID = setInterval(show,10)
                 } else if(opacity >= 1) {
                     intervalID = setInterval(hide,10)
                     imge = imge + 1;
